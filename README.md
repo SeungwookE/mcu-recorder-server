@@ -4,7 +4,7 @@
 mcu recorder development based on janus-gateway mjr file
 janus gateway is a SFU media relaying server. this is meaning there is no any proc to mixing video or audio while handling media packets.
 
-<br>
+<br><br><br>
 <b>How the Janus-gateway works?</b>
 
 1. broadcast rtp packets to other session participants.
@@ -17,7 +17,7 @@ janus gateway is a SFU media relaying server. this is meaning there is no any pr
 So I came up with some idea about module, mixing separated mjr files on realtime.
 
 
-<br>
+<br><br><br>
 <b>what this module do?</b>
 
 1. keep looking at designated directory where mjr files will be saved.
