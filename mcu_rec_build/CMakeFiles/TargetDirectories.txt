@@ -1,5 +1,0 @@
-/Users/seunguklee/dev/cpp/mcu_rec_build/CMakeFiles/MCU_REC.dir
-/Users/seunguklee/dev/cpp/mcu_rec_build/CMakeFiles/edit_cache.dir
-/Users/seunguklee/dev/cpp/mcu_rec_build/CMakeFiles/rebuild_cache.dir
-/Users/seunguklee/dev/cpp/mcu_rec_build/lib/FFmpeg/CMakeFiles/edit_cache.dir
-/Users/seunguklee/dev/cpp/mcu_rec_build/lib/FFmpeg/CMakeFiles/rebuild_cache.dir

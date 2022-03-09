@@ -11,17 +11,20 @@
 #include <cinttypes>
 #include <cstring>
 
-// #include <cglib>
-
 extern "C" {
-    #include <libavformat/avformat.h>
     #include <libavcodec/avcodec.h>
-    #include <libavutil/avutil.h>
-    #include <libavutil/pixdesc.h>
+    #include <libavformat/avformat.h>
     #include <libswscale/swscale.h>
+    #include <inttypes.h>
 }
 
+
+
 using namespace std;
+
+/* MP4 output */
+static AVFormatContext *fctx;
+static AVStream *vStream;
 
 static int working = 0;
 static int max_width = 0, max_height = 0, fps = 0;
@@ -122,10 +125,6 @@ static void janus_pp_h264_parse_sps(uint8_t *buffer, int *width, int *height) {
 		*height = ((2 - frame_mbs_only_flag)* (pic_height_in_map_units_minus1 +1) * 16) - (frame_crop_top_offset * 2) - (frame_crop_bottom_offset * 2);
 }
 
-void decodingPacket() {
-
-}
-
 void reverseArray(uint8_t *array, int len) {
     int inc = len-1;
     cout << "reverseArray | len:" << len <<endl;
@@ -147,7 +146,35 @@ void reverseArray(uint8_t *array, int len) {
     cout << endl;
 }
 
+int create_h264_context(void) {
+    av_register_all();
+    /* Video output */
+	fctx = avformat_alloc_context();
+    if(fctx == NULL) {
+		cout << "Error allocating context\n";
+		return -1;
+	}
+    vStream = avformat_new_stream(fctx, 0);
+	if(vStream == NULL) {
+		cout << "Error adding stream\n";
+		return -1;
+	}
+
+    cout << "Creating h264 context succeeded!\n";
+}
+
+void decoding_video_frames() {
+
+}
+
 int main() {
+
+    int res = create_h264_context();
+    if (res < 0) {
+        cout << "Failed to create h264 context!\n";
+        return -1;
+    }
+    
 
     // int bytes = 0, skip = 0;
     long offset = 0;
