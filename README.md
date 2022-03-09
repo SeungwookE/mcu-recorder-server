@@ -1,11 +1,11 @@
 # mcu-recorder-server
 
-**Overview
+<b>Overview</b>
 mcu recorder development based on janus-gateway mjr file
 janus gateway is a SFU media relaying server. this is meaning there is no any proc to mixing video or audio while handling media packets.
 
 
-**How the Janus-gateway works?
+<b>How the Janus-gateway works?</b>
 
 1. broadcast rtp packets to other session participants.
 2. recording (actually stacking rtp packets) single peer rtp stream in mjr file (with mjr format).
